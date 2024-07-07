@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermit - Interactive Educational Platform</title>
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0c2461, #1e3799, #2b3990, #3c4ed6);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav li {
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* Hero Section Styles */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero p {
+      font-size: 24px;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease;
+      animation: fadeIn 2s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #2980b9;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #0c2461, #1e3799, #2b3990, #a569bd);
+      background-size: 400% 400%;
+      animation: heroGradientAnimation 10s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes heroGradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Featured Courses Styles */
+    .featured-courses {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .featured-courses h2 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .course-card {
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .course-card h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .course-card p {
+      font-size: 18px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .course-card .cta-button {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+
+    /* Why Hermit Styles */
+    .why-hermit {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .why-hermit h2 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+    }
+
+    .feature-card {
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .feature-card h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .feature-card p {
+      font-size: 18px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-top: auto;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">HERMIT</div>
+    <nav>
+      <ul>
+        <!-- <li><a href="#">Home</a></li> -->
+        <li><a href="hermitcourses.html">Courses</a></li>
+        <li><a href="hermitabout.html">About</a></li>
+        <li><a href="hermitcontact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <h1>Unlock the Power of Interactive Learning</h1>
+      <p>Experience the future of education with Hermit</p>
+      <a href="hermitsignin.html" class="cta-button">Get Started</a>
+    </section>
+
+    <section class="featured-courses">
+      <h2>Featured Courses</h2>
+      <div class="course-grid">
+        <div class="course-card">
+          <h3>Mathematics</h3>
+          <p>Explore the world of numbers and equations through interactive simulations and gamified lessons.</p>
+          <a href="#" class="cta-button">Enroll Now</a>
+        </div>
+        <div class="course-card">
+          <h3>Physics</h3>
+          <p>Dive into the laws of the universe with our virtual labs and engaging learning modules.</p>
+          <a href="#" class="cta-button">Enroll Now</a>
+        </div>
+        <div class="course-card">
+          <h3>Computer Science</h3>
+          <p>Learn programming, algorithms, and more through hands-on projects and personalized learning paths.</p>
+          <a href="#" class="cta-button">Enroll Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-hermit">
+      <h2>Why Choose Hermit?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Gamified Learning</h3>
+          <p>Engage in interactive, game-like learning experiences that make education fun and rewarding.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Virtual Labs</h3>
+          <p>Explore scientific concepts through realistic, browser-based simulations and experiments.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Personalized Paths</h3>
+          <p>Receive customized learning recommendations based on your individual progress and needs.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Collaborative Learning</h3>
+          <p>Participate in group projects, discussions, and virtual classrooms to learn from your peers.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 HERMIT. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Hermit</title>
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0c2461, #1e3799, #2b3990, #3c4ed6);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      /* background-color: rgba(0, 0, 0, 0.2); */
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav li {
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* About Page Styles */
+    .about-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 100px 20px;
+      margin-top: 80px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-page h1 {
+      font-size: 48px;
+      margin-bottom: 40px;
+    }
+
+    .about-page p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .blog-section {
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+
+    .blog-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .blog-post {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .blog-post:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .blog-post h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .blog-post p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .blog-post a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .blog-post a:hover {
+      color: #2980b9;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-top: auto;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">HERMIT</div>
+    <nav>
+      <ul>
+        <!-- <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-page">
+      <h1>About Hermit</h1>
+      <p>Hermit is an interactive educational platform that provides engaging and personalized learning experiences.</p>
+
+      <div class="blog-section">
+        <h2>Latest from the Blog</h2>
+        <div class="blog-post">
+          <h3>Gamification in Education: Unlocking Student Potential</h3>
+          <p>Discover how gamification can transform the learning experience and boost student engagement.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-post">
+          <h3>Virtual Labs: Bridging the Gap Between Theory and Practice</h3>
+          <p>Explore how virtual labs can enhance scientific understanding and provide hands-on learning opportunities.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="blog-post">
+          <h3>Personalized Learning Paths: Tailoring Education to Individual Needs</h3>
+          <p>Learn how personalized learning paths can optimize the learning experience and help students achieve their goals.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 HERMIT. All rights reserved.</p>
+  </footer>
+</body>
+</html>
